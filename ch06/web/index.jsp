@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+<a href="input.action">注册</a>
   </body>
 </html>

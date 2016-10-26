@@ -6,11 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>注册成功</title>
 </head>
 <body>
-成功
+<s:property value="user.username"/>,恭喜您注册成功
 </body>
 </html>

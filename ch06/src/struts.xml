@@ -7,6 +7,7 @@
 <struts>
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.encoding" value="GB2312"/>
 
 
     <package name="default" namespace="/" extends="struts-default">
@@ -24,6 +25,10 @@
         <action name="register" class="org.crystal.struts2.action.RegisterAction">
             <result name="input">/WEB-INF/pages/register.jsp</result>
             <result name="success">/WEB-INF/pages/success.jsp</result>
+            <result name="error">/WEB-INF/pages/error.jsp</result>
+        </action>
+        <action name="input" class="org.crystal.struts2.action.RegisterAction" method="doDefault">
+            <result name="input">/WEB-INF/pages/register.jsp</result>
         </action>
 
     </package>

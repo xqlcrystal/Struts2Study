@@ -45,9 +45,23 @@ public class UserDao {
 
         try {
             conn = getDatasource().getConnection();
-            String sql = "select * from reg_user";
+            String sql = "insert into reg_user(username,password,sex,email,pwd_question,pwd_answer,reg_date) values(?,?,?,?,?,?,?)";
             pstmt = conn.prepareStatement(sql);
-            rs = pstmt.executeQuery();
+            int index=0;
+            pstmt.setString(++index,user.getUsername());
+            pstmt.setString(++index,user.getPassword());
+            pstmt.setBoolean(++index,user.getSex());
+            pstmt.setString(++index,user.getEmail());
+            pstmt.setString(++index,user.getPwdQuestion());
+            pstmt.setString(++index,user.getPwdAnswer());
+            pstmt.setTimestamp(++index,new java.sql.Timestamp(user.getRegDate().getTime()));
+           pstmt.execute();
+            rs =pstmt.executeQuery("select last_insert_id()");
+            if(rs.next()){
+                user.setId(rs.getInt(1));
+            }else {
+                return null;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -56,7 +70,7 @@ public class UserDao {
             closeConnection(conn);
         }
 
-        return null;
+        return user;
     }
 
     private void closeConnection(Connection conn) {

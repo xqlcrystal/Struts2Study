@@ -14,9 +14,54 @@
 <form action="register.action" method="post">
     <table border="0">
         <tr>
-            <td>用户名：</td>
+            <td>
+                用户名：
+            </td>
             <td>
                 <input type="text" name="user.username"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码：
+            </td>
+            <td>
+                <input type="password" name="user.password"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                性别：
+            </td>
+            <td>
+                <input type="radio" name="user.sex" value="true" checked/>男
+                <input type="radio" name="user.sex" value="false"/>女
+            </td>
+        </tr>
+        <tr>
+            <td>
+                邮件地址：
+            </td>
+            <td>
+               <input type="email" name="user.email"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                密码问题：
+            </td>
+            <td>
+                <input type="text" name="user.pwdQuestion"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                问题答案：
+            </td>
+            <td>
+                <input type="text" name="user.pwdAnswer"/>
             </td>
         </tr>
         <tr>
