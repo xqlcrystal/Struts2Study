@@ -11,7 +11,15 @@ import java.util.Date;
  */
 public class RegisterAction extends ActionSupport {
 
-    UserDao dao=null;
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    UserDao userDao =null;
 
     public User getUser() {
         return user;
@@ -24,7 +32,7 @@ public class RegisterAction extends ActionSupport {
     User user;
 
     public RegisterAction() {
-        dao=new UserDao();
+
     }
 
     @Override
@@ -36,7 +44,7 @@ public class RegisterAction extends ActionSupport {
     public String execute() throws Exception {
 
         user.setRegDate(new Date());
-        dao.register(user);
+        userDao.register(user);
         return SUCCESS;
     }
 }
