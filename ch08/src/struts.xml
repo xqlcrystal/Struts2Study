@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.encoding" value="GB2312"/>
+
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="setTag" class="org.crystal.struts2.ch08.action.generic.datatag.SetTagAction">
+            <result name="success">/setTag.jsp</result>
+        </action>
+        <action name="pushTag" class="org.crystal.struts2.ch08.action.generic.datatag.PushTagAction">
+            <result>/pushTag.jsp</result>
+        </action>
+
+        <action name="actionTag" class="org.crystal.struts2.ch08.action.generic.datatag.ActionTagAction">
+            <result name="success">/actionTagSuccess.jsp</result>
+        </action>
+
+        <action name="actionTagDefault" class="org.crystal.struts2.ch08.action.generic.datatag.ActionTagAction" method="doDefault">
+            <result name="success">/actionTagSuccess.jsp</result>
+        </action>
+
+        <action name="textTag" class="org.crystal.struts2.ch08.action.generic.datatag.TextTagAction">
+            <result>/i18nTag.jsp</result>
+        </action>
+
+
+    </package>
+</struts>
