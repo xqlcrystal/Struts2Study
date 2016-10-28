@@ -8,6 +8,7 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
     <constant name="struts.i18n.encoding" value="GB2312"/>
+    <constant name="struts.custom.i18n.resources" value="ApplicationResources"/>
 
 
     <package name="default" namespace="/" extends="struts-default">
@@ -39,6 +40,10 @@
 
         <action name="textTag" class="org.crystal.struts2.ch08.action.generic.datatag.TextTagAction">
             <result>/i18nTag.jsp</result>
+        </action>
+
+        <action name="debugTag">
+            <result>/debugTag.jsp</result>
         </action>
 
 
