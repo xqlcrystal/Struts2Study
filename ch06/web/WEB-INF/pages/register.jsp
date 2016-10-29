@@ -5,17 +5,18 @@
   Time: 15:15
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=GBK" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>ç”¨æˆ·æ³¨å†Œ</title>
+    <title>ÓÃ»§×¢²á</title>
 </head>
 <body>
-<form action="register.action" method="post">
+<%--<form action="register.action" method="post">
     <table border="0">
         <tr>
             <td>
-                ç”¨æˆ·åï¼š
+                ÓÃ»§Ãû£º
             </td>
             <td>
                 <input type="text" name="user.username"/>
@@ -23,7 +24,7 @@
         </tr>
         <tr>
             <td>
-                å¯†ç ï¼š
+                ÃÜÂë£º
             </td>
             <td>
                 <input type="password" name="user.password"/>
@@ -31,16 +32,16 @@
         </tr>
         <tr>
             <td>
-                æ€§åˆ«ï¼š
+                ÐÔ±ð£º
             </td>
             <td>
-                <input type="radio" name="user.sex" value="true" checked/>ç”·
-                <input type="radio" name="user.sex" value="false"/>å¥³
+                <input type="radio" name="user.sex" value="true" checked/>ÄÐ
+                <input type="radio" name="user.sex" value="false"/>Å®
             </td>
         </tr>
         <tr>
             <td>
-                é‚®ä»¶åœ°å€ï¼š
+                ÓÊ¼þµØÖ·£º
             </td>
             <td>
                <input type="email" name="user.email"/>
@@ -49,7 +50,7 @@
 
         <tr>
             <td>
-                å¯†ç é—®é¢˜ï¼š
+                ÃÜÂëÎÊÌâ£º
             </td>
             <td>
                 <input type="text" name="user.pwdQuestion"/>
@@ -58,7 +59,7 @@
 
         <tr>
             <td>
-                é—®é¢˜ç­”æ¡ˆï¼š
+                ÎÊÌâ´ð°¸£º
             </td>
             <td>
                 <input type="text" name="user.pwdAnswer"/>
@@ -66,11 +67,24 @@
         </tr>
         <tr>
             <td>
-                <input type="submit" value="æ³¨å†Œ"/>
-                <input type="reset" value="é‡å¡«"/>
+                <input type="submit" value="×¢²á"/>
+                <input type="reset" value="ÖØÌî"/>
             </td>
         </tr>
     </table>
-</form>
+</form>--%>
+
+<s:form action="register.action" method="POST">
+    <s:textfield name="user.username" label="ÓÃ»§Ãû"/>
+    <s:password name="user.password" label="ÃÜÂë"/>
+    <s:radio name="user.sex" value="true" list="#{true : 'ÄÐ', false : 'Å®'}" label="ÐÔ±ð" />
+    <s:textfield name="user.email" label="ÓÊ¼þµØÖ·"/>
+    <s:textfield name="user.pwdQuestion" label="ÃÜÂëÎÊÌâ"/>
+    <s:textfield name="user.pwdAnswer" label="ÃÜÂë´ð°¸"/>
+    <s:component template="submit_resetTemplate.jsp">
+        <s:param name="submit" value="'×¢²á'"/>
+        <s:param name="reset" value="'ÖØÌî'"/>
+    </s:component>
+</s:form>
 </body>
 </html>
